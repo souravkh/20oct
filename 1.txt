@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+<Product Id="CB3B26F8-E18D-4504-80F0-0734387E1697" Name="Test4" Language="1033" Version="0.0.0.1" Manufacturer="Test4" UpgradeCode="E73A980E-183D-4B14-8A7A-AAF902608F3F">
+	<Package Description="Test file in a Product" Comments="Simple test" InstallerVersion="200" Compressed="yes" />
+
+	<Media Id="1" Cabinet="simple.cab" EmbedCab="yes" />
+
+
+	<Property Id="MY_PROPERTY" Value="default value" />
+	
+	<Directory Id="TARGETDIR" Name="SourceDir">
+		<Directory Id ="CommonAppDataFolder" Name="CommonAppDataFolder">
+			<Directory Id="A" Name="A">
+
+				<Directory Id="ABD" Name="2021">
+					
+					<Component Id="AGREEMENT.RTF" DiskId="1" Guid="CF209FAE-DBCA-499E-9B6A-566F541BC39D">
+						<File Id="AGREEMENT.RTF" Name="AGREEMENT.rtf" Source="E:\New folder\AGREEMENT.rtf" />
+					</Component>
+					<Directory Id="_1" Name="1">
+						<Component Id="AGREEMENT___COPY__2_.RTF" DiskId="1" Guid="559F5F19-0AA5-4072-BF4F-37C9B1EF8D6C">
+							<File Id="AGREEMENT___COPY__2_.RTF" Name="AGREEMENT - Copy (2).rtf" Source="E:\New folder\1\AGREEMENT - Copy (2).rtf" />
+						</Component>
+						<Component Id="AGREEMENT___COPY.RTF" DiskId="1" Guid="620ADDBD-A25E-495C-B26D-255C3AC79A54">
+							<File Id="AGREEMENT___COPY.RTF" Name="AGREEMENT - Copy.rtf" Source="E:\New folder\1\AGREEMENT - Copy.rtf" />
+						</Component>
+					</Directory>
+				</Directory>
+
+				<Directory Id="ABC" Name="2023">
+					<Component Id="README.RTF" DiskId="1" Guid="3E0CA860-96F8-482C-ADAE-8387E7073289">
+						<File Id="README.RTF" Name="ReadME.rtf" Source="E:\New folder\ReadME.rtf" />
+					</Component>
+					<Directory Id="_2" Name="2">
+						<Component Id="AGREEMENT___COPY__2_.RTF_1" DiskId="1" Guid="ED6F1C60-81E4-4499-B680-8C1E660C3501">
+							<File Id="AGREEMENT___COPY__2_.RTF_1" Name="AGREEMENT - Copy (2).rtf" Source="E:\New folder\2\AGREEMENT - Copy (2).rtf" />
+						</Component>
+						<Component Id="AGREEMENT___COPY.RTF_1" DiskId="1" Guid="22B820D0-1A35-4D96-BF91-7F17B3FA6501">
+							<File Id="AGREEMENT___COPY.RTF_1" Name="AGREEMENT - Copy.rtf" Source="E:\New folder\2\AGREEMENT - Copy.rtf" />
+						</Component>
+					</Directory>
+				</Directory>
+
+
+				<Directory Id="ABE" Name="2024">
+
+					<Component Id="README2.RTF" DiskId="1" Guid="286db909-8c49-4fb4-a94e-1556702d0e2c">
+
+						<File Id="README2.RTF" Name="ReadME.rtf" Source="E:\New folder\ReadME.rtf" />
+					</Component>
+
+					<Directory Id="DEBUG" Name="WPFAPP">
+						<Component Id="NEWTONSOFT.JSON.DLL" DiskId="1" Guid="8983FDE0-510E-4EA8-B1B3-BC3ED7F660AE">
+							<File Id="NEWTONSOFT.JSON.DLL" Name="Newtonsoft.Json.dll" Source="C:\Users\soura\source\repos\WpfApp7\WpfApp7\bin\Debug\Newtonsoft.Json.dll" />
+						</Component>
+						<Component Id="NEWTONSOFT.JSON.XML" DiskId="1" Guid="AF91A19B-5928-4944-83FA-5E49FB4FE7CF">
+							<File Id="NEWTONSOFT.JSON.XML" Name="Newtonsoft.Json.xml" Source="C:\Users\soura\source\repos\WpfApp7\WpfApp7\bin\Debug\Newtonsoft.Json.xml" />
+						</Component>
+						<Component Id="WPFAPP7.EXE" DiskId="1" Guid="0430463E-2AB1-4577-BB05-98E379F70BC4">
+							<File Id="WPFAPP7.EXE" Name="WpfApp7.exe" Source="C:\Users\soura\source\repos\WpfApp7\WpfApp7\bin\Debug\WpfApp7.exe">
+								<Shortcut Id="desktopShortcut" Directory="DesktopFolder" Name="Test4" WorkingDirectory="INSTALLDIR" Advertise="yes" Icon="DesktopIcon.exe" IconIndex="0" />
+								<Shortcut Id="ExeShortcut" Directory="ProgramMenuDir" Name="Test4" Advertise="yes" Icon="StartMenuIcon.exe" IconIndex="0" />
+							</File>
+						</Component>
+						<Component Id="WPFAPP7.EXE.CONFIG" DiskId="1" Guid="7EE4F47E-3FFF-4FDC-B100-47A9FDBDD508">
+							<File Id="WPFAPP7.EXE.CONFIG" Name="WpfApp7.exe.config" Source="C:\Users\soura\source\repos\WpfApp7\WpfApp7\bin\Debug\WpfApp7.exe.config" />
+						</Component>
+						<Component Id="WPFAPP7.PDB" DiskId="1" Guid="A482B82E-11A9-4BA3-817F-4497DEF1044C">
+							<File Id="WPFAPP7.PDB" Name="WpfApp7.pdb" Source="C:\Users\soura\source\repos\WpfApp7\WpfApp7\bin\Debug\WpfApp7.pdb" />
+						</Component>
+					</Directory>
+				</Directory>
+
+
+			</Directory>
+		</Directory>
+
+		
+		<Directory Id="ProgramMenuFolder">
+			<Directory Id="ProgramMenuDir" Name="NewTrail4">
+				<Component Id="StartMenuShortcuts" Guid="3F85C77E-FC01-4C7F-B865-E285DEBDEC3D">
+					<RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+					<RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value='[My_Property]' />
+				</Component>
+			</Directory>
+			<Directory Id="DesktopFolder" Name="Desktop">
+				
+			</Directory>
+		</Directory>
+		
+	</Directory>
+	<Feature Id="DefaultFeature" Title="Main Feature" Level="1">
+		<ComponentRef Id="AGREEMENT.RTF" />
+		<ComponentRef Id="README.RTF" />
+		<ComponentRef Id="AGREEMENT___COPY__2_.RTF" />
+		<ComponentRef Id="AGREEMENT___COPY.RTF" />
+		<ComponentRef Id="AGREEMENT___COPY__2_.RTF_1" />
+		<ComponentRef Id="AGREEMENT___COPY.RTF_1" />
+	</Feature>
+	<Feature Id="DefaultFeature2" Title="Main Feature2" Level="1">
+		<ComponentRef Id="README2.RTF" />
+	</Feature>
+	<Feature Id="DefaultFeature3" Title="Main Feature3" Level="1">
+		<ComponentRef Id="NEWTONSOFT.JSON.DLL" />
+		<ComponentRef Id="NEWTONSOFT.JSON.XML" />
+		<ComponentRef Id="WPFAPP7.EXE" />
+		<ComponentRef Id="WPFAPP7.EXE.CONFIG" />
+		<ComponentRef Id="WPFAPP7.PDB" />
+		<ComponentRef Id="StartMenuShortcuts" />
+	</Feature>
+
+	<UI>
+			<UIRef Id="WixUI_InstallDir" />
+		<!--<UIRef Id="WixUI_Minimal" />-->
+		
+<Property Id="WIXUI_INSTALLDIR" Value="A" />
+		<Property Id="WIXUI_EXITDIALOGOPTIONALTEXT" Value="Thank you for installing and Please configure it"/>
+
+
+
+
+		<Publish Dialog="ExitDialog"
+				 
+			   Control="Finish"
+			   Event="DoAction"
+			   Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+		
+	</UI>
+	<Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="LaunchApplication"   />
+
+
+	<Property Id="WixShellExecTarget" Value="[#WPFAPP7.EXE]" />
+	<CustomAction Id="LaunchApplication"
+        BinaryKey="WixCA"
+        DllEntry="WixShellExec"
+        Impersonate="yes" />
+	
+	
+	<Icon Id="DesktopIcon.exe" SourceFile="C:\Users\soura\source\repos\WpfApp7\WpfApp7\bin\Debug\WpfApp7.exe" />
+	<Icon Id="StartMenuIcon.exe" SourceFile="C:\Users\soura\source\repos\WpfApp7\WpfApp7\bin\Debug\WpfApp7.exe" />
+</Product>
+</Wix>
