@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Windows.Forms;
+using Microsoft.Deployment.WindowsInstaller;
+
+namespace CustomAction1
+{
+    public class CustomActions
+    {
+        [CustomAction]
+        public static ActionResult ShowPage(Session session)
+        {
+            Form1 f1 = new Form1();
+            f1.ShowDialog();
+            if (f1.something.Length<=0)
+            {
+                f1.Close();
+                return ActionResult.Failure;
+                return ActionResult.UserExit;
+            }
+            else
+            {
+                MessageBox.Show(f1.something);
+                f1.Close();
+                return ActionResult.Success;
+            }
+        }
+    }
+}

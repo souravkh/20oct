@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="9bc24022-09b8-4c26-bab4-9aa251ebe59f" Name="SetupProject5" Language="1033" Version="2.0.0.0" Manufacturer="HP Inc." UpgradeCode="456ad7bc-7e1d-4a8e-ae0d-94bc7b62f15d">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="SetupProject5" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+
+		<UIRef Id="WixUI_InstallDir" />
+		<Property Id="WIXUI_INSTALLDIR" Value="CommonAppDataFolder" />
+		
+
+		<InstallExecuteSequence>
+			<Custom Action='B' Before='InstallFinalize'>NOT Installed</Custom>
+		</InstallExecuteSequence>
+		
+		
+	</Product>
+
+
+	<Fragment>
+		<Binary Id="CustomActionBinary" SourceFile="C:\Users\soura\source\repos\SetupProject5\CustomAction1\bin\Debug\CustomAction1.CA.dll"/>
+		<CustomAction Id="B" BinaryKey="CustomActionBinary" DllEntry="ShowPage" Execute="immediate" Return="check"/>
+	</Fragment>
+	
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+				<Directory Id ="CommonAppDataFolder" Name="CommonAppDataFolder">
+				<Directory Id="INSTALLFOLDER" Name="SetupProject5" />
+			
+					<Directory Id="NEW_FOLDER" Name="New folder">
+
+							<Component Id="AGREEMENT.RTF" DiskId="1" Guid="9FDA576A-8A2C-49ED-AED4-431880183720">
+								<File Id="AGREEMENT.RTF" Name="AGREEMENT.rtf" Source="E:\New folder\AGREEMENT.rtf" />
+							</Component>
+							<Component Id="README.RTF" DiskId="1" Guid="2AF40CC8-57CC-49CE-8608-D85B44048CD6">
+								<File Id="README.RTF" Name="ReadME.rtf" Source="E:\New folder\ReadME.rtf" />
+							</Component>
+							<Directory Id="_2" Name="2">
+								<Component Id="AGREEMENT___COPY__2_.RTF" DiskId="1" Guid="E4700199-0525-4BEC-8930-2B0857AA71BE">
+									<File Id="AGREEMENT___COPY__2_.RTF" Name="AGREEMENT - Copy (2).rtf" Source="E:\New folder\1\AGREEMENT - Copy (2).rtf" />
+								</Component>
+								<Component Id="AGREEMENT___COPY.RTF" DiskId="1" Guid="9D5E454B-39C1-4187-BD3D-0C458223DE54">
+									<File Id="AGREEMENT___COPY.RTF" Name="AGREEMENT - Copy.rtf" Source="E:\New folder\1\AGREEMENT - Copy.rtf" />
+								</Component>
+							
+							</Directory>
+						</Directory>
+	
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+			<!-- <Component Id="ProductComponent"> -->
+				<!-- TODO: Insert files, registry keys, and other resources here. -->
+			<!-- </Component> -->
+		</ComponentGroup>
+	
+		<Feature Id="DefaultFeature" Title="Main Feature" Level="1">
+			<ComponentRef Id="AGREEMENT.RTF" />
+			<ComponentRef Id="README.RTF" />
+			<ComponentRef Id="AGREEMENT___COPY__2_.RTF" />
+			<ComponentRef Id="AGREEMENT___COPY.RTF" />
+		</Feature>
+
+	</Fragment>
+</Wix>
