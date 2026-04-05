@@ -7,12 +7,12 @@ class Pattern{
 		} 
 	System.out.println("");
 	}
-	for(int i = 0 ; i<=4;i++)
+	for(int i = 0 ; i<=6;i++)
 	{for(int j=0 ; j<=i;j++)
 		{
 		System.out.print(j);
 		} 
-	System.out.println("");
+	System.out.print("\n");
 	}
  } 
 }
